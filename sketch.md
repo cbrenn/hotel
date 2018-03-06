@@ -73,21 +73,23 @@ Part 4 reserve method in Hotel
 x1. test - reservation takes in information from Reservation instance (input)
 x2. test -reservation can be made on room
 x3. test- reservation updates hotel rooms
-4. test - reservation is not made on day when room is unavailable
-  4a.raises exception when asked to reserve unavailable room
-5. test- no more than 20 rooms can be reserved
-6. reserve method(checkin, checkout, number of rooms)
-  5a. if room is empty reserve, else check reservations for date
-  5b. no more than 20 rooms can be reserved
-7. test- can not reserve a date in the past
-8. test - checkout is after check in
+x4. test - reservation is not made on day when room is unavailable
+  x4a.raises exception when asked to reserve unavailable room
+x5. test- no more than 20 rooms can be reserved
+x6. reserve method(checkin, checkout, number of rooms)
+  x5a. if room is empty reserve, else check reservations for date
+  x5b. no more than 20 rooms can be reserved
+x7. test- can not reserve a date in the past
+x8. test - checkout is after check in
+x9.test - can reserve room on same day as checkout
 
 
 Part 5 - cost of room in Reservation class
-1. cost constant
-2. test - cost does not change
-3. test -can return cost
-4. cost method (checkin, checkout, number of rooms= 1)
+x1. cost constant
+x2. test - cost does not change
+x3. test -can return cost
+x4. cost method number_of_rooms and C cost
+
 5. test - block of rooms can be reserved
 
 

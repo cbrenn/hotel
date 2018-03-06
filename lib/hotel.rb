@@ -19,13 +19,12 @@ class Hotel
         return
       else
         #go through arrays and see if there is a room booked at that time and return it to a new array
-        booked_during = @rooms[i].select {|reservations| reservation.checkin.between?(reservations.checkin, reservations.checkout)  }
+        booked_during = @rooms[i].select {|reservations| reservation.checkin.between?(reservations.checkin, reservations.checkout-1)  }
 
         if booked_during.length == 0
           @rooms[i] << reservation
           return
         else
-          puts"*********** booked during #{booked_during.to_s}"
           i += 1
           # => true
         end

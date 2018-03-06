@@ -28,7 +28,7 @@ describe 'Hotel class' do
 
     it "takes a reservation and updates room" do
       dorf = Hotel.new(20)
-      Burray = Reservation.new('2017-01-01', '2017-01-05')
+      Burray = Reservation.new('2018-05-01', '2018-05-05')
       dorf.reserve_room(Burray)
 
       dorf.rooms[0].length.must_equal 1
@@ -36,8 +36,8 @@ describe 'Hotel class' do
 
     it "does not double book a room" do
       ldorf = Hotel.new(20)
-      Blurray = Reservation.new('2017-01-01', '2017-01-05')
-      Bluray = Reservation.new('2017-01-01', '2017-01-05')
+      Blurray = Reservation.new('2018-05-01', '2018-05-05')
+      Bluray = Reservation.new('2018-05-01', '2018-05-05')
       ldorf.reserve_room(Bluray)
       ldorf.reserve_room(Blurray)
 
@@ -47,7 +47,7 @@ describe 'Hotel class' do
 
     it "no more than the rooms that exist can be reserved on a specific date" do
       aldorf = Hotel.new(2)
-      urray = Reservation.new('2017-01-01', '2017-01-05')
+      urray = Reservation.new('2018-05-01', '2018-05-05')
 
       proc {
 
@@ -56,6 +56,18 @@ describe 'Hotel class' do
           aldorf.reserve_room(urray)
 
       }.must_raise ArgumentError
+    end
+
+    it "can make a reservation on the same day as a checkout" do
+      hilmorf = Hotel.new(20)
+      Hosier = Reservation.new('2018-05-01', '2018-05-05')
+      Bruiser = Reservation.new('2018-05-05', '2018-05-07')
+
+      hilmorf.reserve_room(Hosier)
+      hilmorf.reserve_room(Bruiser)
+
+      hilmorf.rooms[0].length.must_equal 2
+      hilmorf.rooms[1].must_be_nil
     end
 
   end

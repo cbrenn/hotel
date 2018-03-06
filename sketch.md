@@ -105,11 +105,16 @@ Part 7
 
 Wave 1 reqs
 DONE As an administrator, I can access the list of all of the rooms in the hotel
+hotel.rooms
+
 DONE As an administrator, I can reserve a room for a given date range
+checkin, checkout
 
 DONE As an administrator, I can access the list of reservations for a specific date
+yes, not the rooms the reservations
 
 DONE As an administrator, I can get the total cost for a given reservation
+yes cost method 
 
 
 when you reserve - try to keep everything in one room

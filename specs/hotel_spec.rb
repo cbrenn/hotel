@@ -51,9 +51,9 @@ describe 'Hotel class' do
 
       proc {
 
-          aldorf.reserve_room(urray)
-          aldorf.reserve_room(urray)
-          aldorf.reserve_room(urray)
+        aldorf.reserve_room(urray)
+        aldorf.reserve_room(urray)
+        aldorf.reserve_room(urray)
 
       }.must_raise ArgumentError
     end
@@ -80,19 +80,35 @@ describe 'Hotel class' do
       stregis.reserve_room(Smith)
       stregis.reserve_room(Rapport)
 
-       stregis.specific_date_reserved('2018-05-03').length.must_equal 2
+      stregis.specific_date_reserved('2018-05-03').length.must_equal 2
     end
-
-describe "Wave 2 tests" do
-
-  it "takes in a range of dates and finds a room" do
-  end 
-end
-
-
-
-
-
-
   end
+  describe "Wave 2 tests" do
+    describe "returns array of available rooms for date range" do
+
+      it "takes in a valid date range" do
+        stregish = Hotel.new(20)
+
+        proc {
+          porta = Reservation.new('2017-05-01', '2017-05-05', 1)
+          stregish.specific_date_range_available_rooms(porta)
+        }.must_raise ArgumentError
+      end
+
+      it "returns all rooms if there are no resevations" do
+        stregish = Hotel.new(20)
+        port = Reservation.new('2018-05-01', '2018-05-05', 1)
+
+        stregish.specific_date_range_available_rooms(port).length.must_equal 20
+
+      end
+    end
+  end
+  #
+  #
+  #
+  #
+  #
+  # end
+
 end

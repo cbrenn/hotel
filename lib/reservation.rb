@@ -22,6 +22,8 @@ class Reservation
    length_of_stay = (checkout - 1) - checkin
    total_cost = length_of_stay.to_f * cost
  end
+
+ 
 end
 
 Hosier = Reservation.new('2018-05-01', '2018-05-05', 1)

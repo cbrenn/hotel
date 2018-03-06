@@ -34,6 +34,7 @@ class Hotel
     raise ArgumentError.new("There are no more rooms available on #{reservation.checkin}")
   end
 
+  #finds what reservations are on a specific date
   def specific_date_reserved(date)
     i = 0
     rooms_reserved_on = []
@@ -52,41 +53,55 @@ class Hotel
     return rooms_reserved_on
   end
 
-  def specific_date_range(checkin, checkout)
-    i = 0
-    available_rooms_range = []
-    until i == @rooms.length
-      if @rooms[i] == nil
-        available_rooms_range << i
-      else
-        rooms_reserved_on[i]= @rooms[i].select {|reservations| date.between?(reservations.checkin, (reservations.checkout-1)) == false }
-        i += 1
 
-      end
+  #finds what rooms are available in date range
+  #s
+  def specific_date_range_available_rooms(reservation)
+    date = []
+    ((reservation.checkin)..(reservation.checkout-1)).each do |date1|
+      date << date1
     end
 
+    i = 0
+    available_rooms_range = []
+
+    until i == @rooms.length
+      if @rooms[i] == nil
+        #accounts translating index to 1 based system
+        available_rooms_range << i
+        #puts 'here'
+        i+=1
+      else
+        #adds to available_rooms_range array
+        available_rooms_range <<
+        #for each room in the array
+        #remove if it has a reservation
+        #reject each room that returns a reservation from inner loop
+        #index at
+        @rooms.reject!{|room|
+          #if there is a reservation on that date, select and add to array
+          #this returns a room object
+          room.select {|reservations| (date{|date|return date}).between?(reservations.checkin, (reservations.checkout-1))
+        }
+        i += 1
+      }
+    end
 
   end
-
-
-
+  ap available_rooms_range
 end
-
+end
 
 stregis = Hotel.new(20)
 Murray = Reservation.new('2018-05-01', '2018-05-03', 1)
 Smith = Reservation.new('2018-05-01', '2018-05-05',1)
 Rapport = Reservation.new('2018-05-01', '2018-05-05',1)
-# # puts Murray.checkin
-# # puts Murray.checkout
-# # puts Murray.number_of_rooms
-#
+Taproot = Reservation.new('2018-05-01', '2018-05-05',1)
 
-#
-# # puts stregis.rooms
-#
-stregis.reserve_room(Murray)
-stregis.reserve_room(Smith)
-ap stregis.reserve_room(Rapport)
+stregis.specific_date_range_available_rooms(Taproot)
 
-ap stregis.specific_date_reserved('2018-05-03')
+# until Smith.checkin == Smith.checkout
+#   puts Smith.checkin.next_day(n)
+#   n+=1
+# end
+# #

@@ -33,23 +33,44 @@ class Hotel
 
     raise ArgumentError.new("There are no more rooms available on #{reservation.checkin}")
   end
+
+  def specific_date_reserved(date)
+    i = 0
+    rooms_reserved_on = []
+    date = Date.parse(date)
+    until i == @rooms.length
+      if @rooms[i] == nil
+        i += 1
+      else
+        rooms_reserved_on[i]= @rooms[i].select {|reservations| date.between?(reservations.checkin, (reservations.checkout-1))  }
+        i += 1
+      end
+    end
+
+
+rooms_reserved_on.reject! { |cell| cell.empty? }
+
+    return rooms_reserved_on
+  end
+
+
 end
 
 
-
-# Murray = Reservation.new('2017-01-01', '2017-01-05')
-# Smith = Reservation.new('2017-03-01', '2017-03-05')
-# Rapport = Reservation.new('2017-03-01', '2017-03-05')
+stregis = Hotel.new(20)
+Murray = Reservation.new('2018-05-01', '2018-05-03', 1)
+Smith = Reservation.new('2018-05-01', '2018-05-05',1)
+Rapport = Reservation.new('2018-05-01', '2018-05-05',1)
 # # puts Murray.checkin
 # # puts Murray.checkout
 # # puts Murray.number_of_rooms
 #
-# stregis = Hotel.new(20)
+
 #
 # # puts stregis.rooms
 #
-# # stregis.reserve_room(Murray)
-# # ap stregis.rooms
-# ap stregis.reserve_room(Smith)
-# ap stregis.rooms
-# ap stregis.reserve_room(Rapport)
+stregis.reserve_room(Murray)
+stregis.reserve_room(Smith)
+ap stregis.reserve_room(Rapport)
+
+ap stregis.specific_date_reserved('2018-05-03')

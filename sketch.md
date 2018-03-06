@@ -1,3 +1,5 @@
+WAVE 1
+
 noun
 
 list of rooms
@@ -90,7 +92,24 @@ x2. test - cost does not change
 x3. test -can return cost
 x4. cost method number_of_rooms and C cost
 
-5. test - block of rooms can be reserved
+
+Part 6 - access list of rooms for specific date
+x1. test - returns a list of reservations
+2. test - reservation are on the date provided
+
+
+Part 7
+1. test - block of rooms can be initialized in reservation
+2. test - block of rooms can be reserved in hotel class
+3.
+
+Wave 1 reqs
+DONE As an administrator, I can access the list of all of the rooms in the hotel
+DONE As an administrator, I can reserve a room for a given date range
+
+DONE As an administrator, I can access the list of reservations for a specific date
+
+DONE As an administrator, I can get the total cost for a given reservation
 
 
 when you reserve - try to keep everything in one room

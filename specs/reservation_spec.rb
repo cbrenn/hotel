@@ -2,7 +2,7 @@ require_relative 'spec_helper'
 
 describe "Reservation class" do
 before do
- Murray = Reservation.new('2018-05-01', '2018-05-05')
+ Murray = Reservation.new('2018-05-01', '2018-05-05',1)
 end
 
  it "creates an accurate reservation" do
@@ -13,14 +13,13 @@ end
 
  it "must choose a start date after today" do
    proc {
- Samson = Reservation.new('2018-05-05', '2018 -05-01')
+ Samson = Reservation.new('2018-05-05', '2018 -05-01',1)
    }.must_raise ArgumentError
  end
 
- it "returns a cost for rooms reserved" do
-   Hosier = Reservation.new('2018-05-01', '2018-05-05')
-   Hosier.cost.must_equal 200
-
+ it "returns a total cost for rooms reserved" do
+   Hosier = Reservation.new('2018-05-01', '2018-05-05',1)
+   Hosier.cost.must_equal 600
  end
 
 end

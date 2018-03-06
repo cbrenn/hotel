@@ -6,7 +6,7 @@ class Reservation
 
   ROOM_COST = 200
 
-  def initialize(checkin ,checkout, number_of_rooms:1)
+  def initialize(checkin ,checkout, number_of_rooms)
 
     @checkin = Date.parse(checkin)
     @checkout = Date.parse(checkout)
@@ -19,8 +19,11 @@ class Reservation
 
  def cost
    cost = ROOM_COST * number_of_rooms
+   length_of_stay = (checkout - 1) - checkin
+   total_cost = length_of_stay.to_f * cost
  end
 end
 
-Hosier = Reservation.new('2018-05-01', '2018-05-05')
+Hosier = Reservation.new('2018-05-01', '2018-05-05', 1)
 puts Hosier.cost
+# puts Hosier.number_of_rooms

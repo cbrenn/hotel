@@ -47,11 +47,27 @@ class Hotel
       end
     end
 
-
-rooms_reserved_on.reject! { |cell| cell.empty? }
+    rooms_reserved_on.reject! { |cell| cell.empty? }
 
     return rooms_reserved_on
   end
+
+  def specific_date_range(checkin, checkout)
+    i = 0
+    available_rooms_range = []
+    until i == @rooms.length
+      if @rooms[i] == nil
+        available_rooms_range << i
+      else
+        rooms_reserved_on[i]= @rooms[i].select {|reservations| date.between?(reservations.checkin, (reservations.checkout-1)) == false }
+        i += 1
+
+      end
+    end
+
+
+  end
+
 
 
 end

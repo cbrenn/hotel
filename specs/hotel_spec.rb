@@ -83,8 +83,12 @@ describe 'Hotel class' do
        stregis.specific_date_reserved('2018-05-03').length.must_equal 2
     end
 
+describe "Wave 2 tests" do
 
-  
+  it "takes in a range of dates and finds a room" do
+  end 
+end
+
 
 
 

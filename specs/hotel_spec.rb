@@ -112,8 +112,6 @@ describe 'Hotel class' do
 
         after_reservations = stregish.specific_date_range_available_rooms(iport).length - 3
 
-        puts after_reservations
-
         stregish.reserve_room(iport)
         stregish.reserve_room(uport)
         stregish.reserve_room(weport)
@@ -129,6 +127,15 @@ describe 'Hotel class' do
           proc {
             stregish.reserves_room_for_specific_date('05-05-2017', '05-05-2017', 1, 1)
           }.must_raise ArgumentError
+        end
+
+        it "finds first available room" do
+          stregish = Hotel.new(20)
+          stregish.reserves_room_for_specific_date('01-01-2019', '01-10-2019', 3, 1)
+
+          puts stregish.rooms
+          
+          stregish.specific_date_reserved('01-01-2019').length.must_equal 1
 
         end
       end

@@ -100,22 +100,28 @@ class Hotel
     return available_rooms_range
   end
 
-  def reserves_room_for_specific_date(start_date, ending_start_date,
-    days, rooms)
+  def reserves_room_for_specific_date(start_date, ending_start_date, days, rooms)
+
+    start_date = Date.parse(start_date)
+    puts start_date
+  ending_start_date = Date.parse(ending_start_date)
+  puts ending_start_date
+
     raise ArgumentError.new "Please select a valid start date." unless  (start_date > (Date.today -1))
 
     raise ArgumentError.new "Please select a valid date range" unless (start_date < ending_start_date)
 
     date = []
-    ((Date.parse(start_date))..(Date.parse(ending_start_date))).each do |date1|
+    ((start_date)..(ending_start_date)).each do |date1|
       date << date1
     end
 
+    i = 0
     reservations = []
     date.each do
       checkin = date[i]
       checkout = date[i] + days
-      reservations[i] = Reservation.new(checkin, checkout, days, rooms)
+      reservations[i] = Reservation.new(checkin.to_s, checkout.to_s, rooms)
       i +=1
     end
 
@@ -142,8 +148,7 @@ Taproot = Reservation.new('2018-05-01', '2018-05-05',1)
 stregis.reserve_room(Rapport)
 stregis.reserve_room(Murray)
 
-stregis.specific_date_range_available_rooms(Taproot)
-ap stregis.rooms
+stregis.reserves_room_for_specific_date('01-01-2019', '01-10-2019', 3, 1)
 # until Smith.checkin == Smith.checkout
 #   puts Smith.checkin.next_day(n)
 #   n+=1

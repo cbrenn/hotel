@@ -21,7 +21,7 @@ date range not a specific date- can go through each date in the range and check
 
 
 Part 2- specific room reservation?
-1.test - takes in a valid date range
+x1.test - takes in a valid date range
 2.test- finds first available date
 3.test - finds first available room- numerically
 4.test - creates a reservation for date

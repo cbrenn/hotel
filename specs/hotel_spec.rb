@@ -99,8 +99,38 @@ describe 'Hotel class' do
         stregish = Hotel.new(20)
         port = Reservation.new('2018-05-01', '2018-05-05', 1)
 
-        stregish.specific_date_range_available_rooms(port).length.must_equal 20
+        (stregish.specific_date_range_available_rooms(port)).length.must_equal 20
+      end
 
+      it "returns an array of the correct length for rooms depending on the reservations" do
+        stregish = Hotel.new(20)
+
+        iport = Reservation.new('2018-05-01', '2018-05-05', 1)
+        uport = Reservation.new('2018-05-01', '2018-05-05', 1)
+        weport = Reservation.new('2018-05-01', '2018-05-05', 1)
+
+
+        after_reservations = stregish.specific_date_range_available_rooms(iport).length - 3
+
+        puts after_reservations
+
+        stregish.reserve_room(iport)
+        stregish.reserve_room(uport)
+        stregish.reserve_room(weport)
+
+        stregish.specific_date_range_available_rooms(weport).length.must_equal after_reservations
+      end
+
+      describe 'reserves room for specific date' do
+
+        it 'takes in valid dates for reservation' do
+          stregish = Hotel.new(20)
+
+          proc {
+            stregish.reserves_room_for_specific_date('05-05-2017', '05-05-2017', 1, 1)
+          }.must_raise ArgumentError
+
+        end
       end
     end
   end

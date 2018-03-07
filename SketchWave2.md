@@ -11,9 +11,9 @@ unreserved
 Part 1 in hotel
 x1.test - takes in a valid date range
 2.creates an array of dates to check against
-2.test - return s an array of room numbers
+x2.test - return s an array of room numbers
 3.test- rooms are not reserved
-4. method - take in date range return unreserved rooms
+x4. method - take in date range return unreserved rooms
 ? should be in reservation?
 ?how can be sure that these area taking in reservations
 

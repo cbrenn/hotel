@@ -5,7 +5,7 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <script src='./assets/0.10.2/application.js' type='text/javascript'></script>    
     <link href='./assets/0.10.2/application.css' media='screen, projection, print' rel='stylesheet' type='text/css'>
-    <link rel="shortcut icon" type="image/png" href="./assets/0.10.2/favicon_green.png" />
+    <link rel="shortcut icon" type="image/png" href="./assets/0.10.2/favicon_yellow.png" />
     <link rel="icon" type="image/png" href="./assets/0.10.2/favicon.png" />
   </head>
   
@@ -14,27 +14,27 @@
       <img src="./assets/0.10.2/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2018-03-06T14:59:57-08:00">2018-03-06T14:59:57-08:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2018-03-06T16:31:17-08:00">2018-03-06T16:31:17-08:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     <span class="group_name">All Files</span>
-    (<span class="covered_percent"><span class="green">96.3%</span></span>
+    (<span class="covered_percent"><span class="yellow">83.02%</span></span>
      covered at
      <span class="covered_strength">
        <span class="green">
-         5.64
+         6.41
        </span>
     </span> hits/line)
   </h2>
   <a name="AllFiles"></a>
   <div>
     <b>3</b> files in total.
-    <b>81</b> relevant lines. 
-    <span class="green"><b>78</b> lines covered</span> and
-    <span class="red"><b>3</b> lines missed </span>
+    <b>106</b> relevant lines. 
+    <span class="green"><b>88</b> lines covered</span> and
+    <span class="red"><b>18</b> lines missed </span>
   </div>
   <table class="file_list">
     <thead>
@@ -52,12 +52,12 @@
       
       <tr>
         <td class="strong"><a href="#9b1847d49bb2e8b6ee267675a7a64e66ddb19d03" class="src_link" title="lib/hotel.rb">lib/hotel.rb</a></td>
-        <td class="green strong">94.12 %</td>
-        <td>107</td>
-        <td>51</td>
-        <td>48</td>
-        <td>3</td>
-        <td>6.4</td>
+        <td class="red strong">76.32 %</td>
+        <td>151</td>
+        <td>76</td>
+        <td>58</td>
+        <td>18</td>
+        <td>7.1</td>
       </tr>
       
       <tr>
@@ -67,7 +67,7 @@
         <td>16</td>
         <td>16</td>
         <td>0</td>
-        <td>7.2</td>
+        <td>7.8</td>
       </tr>
       
       <tr>
@@ -99,11 +99,11 @@
         <div class="source_table" id="9b1847d49bb2e8b6ee267675a7a64e66ddb19d03">
   <div class="header">
     <h3>lib/hotel.rb</h3>
-    <h4><span class="green">94.12 %</span> covered</h4>
+    <h4><span class="red">76.32 %</span> covered</h4>
     <div>
-      <b>51</b> relevant lines. 
-      <span class="green"><b>48</b> lines covered</span> and
-      <span class="red"><b>3</b> lines missed.</span>
+      <b>76</b> relevant lines. 
+      <span class="green"><b>58</b> lines covered</span> and
+      <span class="red"><b>18</b> lines missed.</span>
     </div>
   </div>
   
@@ -158,8 +158,8 @@
           <code class="ruby">  def initialize(rooms)</code>
         </li>
       
-        <li class="covered" data-hits="17" data-linenumber="9">
-          <span class="hits">17</span>
+        <li class="covered" data-hits="19" data-linenumber="9">
+          <span class="hits">19</span>
           
           <code class="ruby">    @rooms = Array.new(rooms)</code>
         </li>
@@ -182,26 +182,26 @@
           <code class="ruby">  def reserve_room(reservation)</code>
         </li>
       
-        <li class="covered" data-hits="11" data-linenumber="13">
-          <span class="hits">11</span>
+        <li class="covered" data-hits="16" data-linenumber="13">
+          <span class="hits">16</span>
           
           <code class="ruby">    i = 0</code>
         </li>
       
-        <li class="covered" data-hits="11" data-linenumber="14">
-          <span class="hits">11</span>
+        <li class="covered" data-hits="16" data-linenumber="14">
+          <span class="hits">16</span>
           
           <code class="ruby">    until i == @rooms.length</code>
         </li>
       
-        <li class="covered" data-hits="17" data-linenumber="15">
-          <span class="hits">17</span>
+        <li class="covered" data-hits="26" data-linenumber="15">
+          <span class="hits">26</span>
           
           <code class="ruby">      if @rooms[i] == nil</code>
         </li>
       
-        <li class="covered" data-hits="9" data-linenumber="16">
-          <span class="hits">9</span>
+        <li class="covered" data-hits="14" data-linenumber="16">
+          <span class="hits">14</span>
           
           <code class="ruby">        @rooms[i] = []</code>
         </li>
@@ -212,14 +212,14 @@
           <code class="ruby">        #add reservation in an array</code>
         </li>
       
-        <li class="covered" data-hits="9" data-linenumber="18">
-          <span class="hits">9</span>
+        <li class="covered" data-hits="14" data-linenumber="18">
+          <span class="hits">14</span>
           
           <code class="ruby">        @rooms[i][0] = reservation</code>
         </li>
       
-        <li class="covered" data-hits="9" data-linenumber="19">
-          <span class="hits">9</span>
+        <li class="covered" data-hits="14" data-linenumber="19">
+          <span class="hits">14</span>
           
           <code class="ruby">        return</code>
         </li>
@@ -236,8 +236,8 @@
           <code class="ruby">        #go through arrays and see if there is a room booked at that time and return it to a new array</code>
         </li>
       
-        <li class="covered" data-hits="16" data-linenumber="22">
-          <span class="hits">16</span>
+        <li class="covered" data-hits="24" data-linenumber="22">
+          <span class="hits">24</span>
           
           <code class="ruby">        booked_during = @rooms[i].select {|reservations| reservation.checkin.between?(reservations.checkin, reservations.checkout-1)  }</code>
         </li>
@@ -248,8 +248,8 @@
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="8" data-linenumber="24">
-          <span class="hits">8</span>
+        <li class="covered" data-hits="12" data-linenumber="24">
+          <span class="hits">12</span>
           
           <code class="ruby">        if booked_during.length == 0</code>
         </li>
@@ -272,8 +272,8 @@
           <code class="ruby">        else</code>
         </li>
       
-        <li class="covered" data-hits="7" data-linenumber="28">
-          <span class="hits">7</span>
+        <li class="covered" data-hits="11" data-linenumber="28">
+          <span class="hits">11</span>
           
           <code class="ruby">          i += 1</code>
         </li>
@@ -464,20 +464,20 @@
           <code class="ruby">  def specific_date_range_available_rooms(reservation)</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="60">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="4" data-linenumber="60">
+          <span class="hits">4</span>
           
           <code class="ruby">    date = []</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="61">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="4" data-linenumber="61">
+          <span class="hits">4</span>
           
           <code class="ruby">    ((reservation.checkin)..(reservation.checkout-1)).each do |date1|</code>
         </li>
       
-        <li class="covered" data-hits="8" data-linenumber="62">
-          <span class="hits">8</span>
+        <li class="covered" data-hits="16" data-linenumber="62">
+          <span class="hits">16</span>
           
           <code class="ruby">      date &lt;&lt; date1</code>
         </li>
@@ -494,32 +494,32 @@
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="65">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="4" data-linenumber="65">
+          <span class="hits">4</span>
           
           <code class="ruby">    i = 0</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="66">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="4" data-linenumber="66">
+          <span class="hits">4</span>
           
           <code class="ruby">    available_rooms_range = []</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="67">
+        <li class="covered" data-hits="4" data-linenumber="67">
+          <span class="hits">4</span>
           
-          
-          <code class="ruby"></code>
+          <code class="ruby">    puts i</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="68">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="4" data-linenumber="68">
+          <span class="hits">4</span>
           
           <code class="ruby">    until i == @rooms.length</code>
         </li>
       
-        <li class="covered" data-hits="40" data-linenumber="69">
-          <span class="hits">40</span>
+        <li class="covered" data-hits="80" data-linenumber="69">
+          <span class="hits">80</span>
           
           <code class="ruby">      if @rooms[i] == nil</code>
         </li>
@@ -530,142 +530,142 @@
           <code class="ruby">        #accounts translating index to 1 based system</code>
         </li>
       
-        <li class="covered" data-hits="40" data-linenumber="71">
-          <span class="hits">40</span>
+        <li class="covered" data-hits="75" data-linenumber="71">
+          <span class="hits">75</span>
           
           <code class="ruby">        available_rooms_range &lt;&lt; i</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="72">
-          
-          
-          <code class="ruby">        #puts &#39;here&#39;</code>
-        </li>
-      
-        <li class="covered" data-hits="40" data-linenumber="73">
-          <span class="hits">40</span>
+        <li class="covered" data-hits="75" data-linenumber="72">
+          <span class="hits">75</span>
           
           <code class="ruby">        i+=1</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="74">
+        <li class="never" data-hits="" data-linenumber="73">
           
           
           <code class="ruby">      else</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="75">
-          
-          
-          <code class="ruby">        #adds to available_rooms_range array</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="76">
-          
-          
-          <code class="ruby">        available_rooms_range &lt;&lt;</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="77">
+        <li class="never" data-hits="" data-linenumber="74">
           
           
           <code class="ruby">        #for each room in the array</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="78">
+        <li class="never" data-hits="" data-linenumber="75">
           
           
           <code class="ruby">        #remove if it has a reservation</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="79">
+        <li class="never" data-hits="" data-linenumber="76">
           
           
           <code class="ruby">        #reject each room that returns a reservation from inner loop</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="80">
+        <li class="never" data-hits="" data-linenumber="77">
           
           
           <code class="ruby">        #index at</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="81">
-          
-          
-          <code class="ruby">        @rooms.reject!{|room|</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="82">
-          
-          
-          <code class="ruby">          #if there is a reservation on that date, select and add to array</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="83">
-          
-          
-          <code class="ruby">          #this returns a room object</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="84">
-          
-          
-          <code class="ruby">          room.select {|reservations| (date{|date|return date}).between?(reservations.checkin, (reservations.checkout-1))</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="85">
-          
-          
-          <code class="ruby">        }</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="86">
-          
-          
-          <code class="ruby">        i += 1</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="87">
-          
-          
-          <code class="ruby">      }</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="88">
-          
-          
-          <code class="ruby">    end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="89">
+        <li class="never" data-hits="" data-linenumber="78">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="90">
+        <li class="never" data-hits="" data-linenumber="79">
           
           
-          <code class="ruby">  end</code>
+          <code class="ruby">        #look at each array element room</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="91">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="5" data-linenumber="80">
+          <span class="hits">5</span>
           
-          <code class="ruby">  ap available_rooms_range</code>
+          <code class="ruby">        @rooms[i].each do |reservations|</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="92">
+        <li class="never" data-hits="" data-linenumber="81">
           
           
-          <code class="ruby">end</code>
+          <code class="ruby">          #look at each date in date array</code>
+        </li>
+      
+        <li class="covered" data-hits="5" data-linenumber="82">
+          <span class="hits">5</span>
+          
+          <code class="ruby">          date.each do |date|</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="83">
+          
+          
+          <code class="ruby">            #is the date in the array during a</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="84">
+          
+          
+          <code class="ruby">            #present reservation</code>
+        </li>
+      
+        <li class="covered" data-hits="5" data-linenumber="85">
+          <span class="hits">5</span>
+          
+          <code class="ruby">            if date.between?(reservations.checkin, reservations.checkout-1)</code>
+        </li>
+      
+        <li class="covered" data-hits="5" data-linenumber="86">
+          <span class="hits">5</span>
+          
+          <code class="ruby">              i+=1</code>
+        </li>
+      
+        <li class="covered" data-hits="5" data-linenumber="87">
+          <span class="hits">5</span>
+          
+          <code class="ruby">              break</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="88">
+          
+          
+          <code class="ruby">            else</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="89">
+          
+          
+          <code class="ruby">              #add room to available rooms</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="90">
+          
+          
+          <code class="ruby">              available_rooms_range &lt;&lt; i</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="91">
+          
+          
+          <code class="ruby">              i+=1</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="92">
+          
+          
+          <code class="ruby">              break</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="93">
           
           
-          <code class="ruby">end</code>
+          <code class="ruby">            end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="94">
@@ -674,46 +674,46 @@
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="95">
-          <span class="hits">1</span>
+        <li class="never" data-hits="" data-linenumber="95">
           
-          <code class="ruby">stregis = Hotel.new(20)</code>
+          
+          <code class="ruby">          end</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="96">
-          <span class="hits">1</span>
+        <li class="never" data-hits="" data-linenumber="96">
           
-          <code class="ruby">Murray = Reservation.new(&#39;2018-05-01&#39;, &#39;2018-05-03&#39;, 1)</code>
+          
+          <code class="ruby">        end</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="97">
-          <span class="hits">1</span>
+        <li class="never" data-hits="" data-linenumber="97">
           
-          <code class="ruby">Smith = Reservation.new(&#39;2018-05-01&#39;, &#39;2018-05-05&#39;,1)</code>
+          
+          <code class="ruby">      end</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="98">
-          <span class="hits">1</span>
-          
-          <code class="ruby">Rapport = Reservation.new(&#39;2018-05-01&#39;, &#39;2018-05-05&#39;,1)</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="99">
-          <span class="hits">1</span>
-          
-          <code class="ruby">Taproot = Reservation.new(&#39;2018-05-01&#39;, &#39;2018-05-05&#39;,1)</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="100">
+        <li class="never" data-hits="" data-linenumber="98">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="101">
-          <span class="hits">1</span>
+        <li class="never" data-hits="" data-linenumber="99">
           
-          <code class="ruby">stregis.specific_date_range_available_rooms(Taproot)</code>
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="covered" data-hits="4" data-linenumber="100">
+          <span class="hits">4</span>
+          
+          <code class="ruby">    return available_rooms_range</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="101">
+          
+          
+          <code class="ruby">  end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="102">
@@ -722,31 +722,295 @@
           <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="103">
+        <li class="covered" data-hits="1" data-linenumber="103">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby"># until Smith.checkin == Smith.checkout</code>
+          <code class="ruby">  def reserves_room_for_specific_date(start_date, ending_start_date,</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="104">
           
           
-          <code class="ruby">#   puts Smith.checkin.next_day(n)</code>
+          <code class="ruby">    days, rooms)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="105">
+        <li class="covered" data-hits="1" data-linenumber="105">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">#   n+=1</code>
+          <code class="ruby">    raise ArgumentError.new &quot;Please select a valid start date.&quot; unless  (start_date &gt; (Date.today -1))</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="106">
           
           
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="107">
+          
+          
+          <code class="ruby">    raise ArgumentError.new &quot;Please select a valid date range&quot; unless (start_date &lt; ending_start_date)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="108">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="109">
+          
+          
+          <code class="ruby">    date = []</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="110">
+          
+          
+          <code class="ruby">    ((Date.parse(start_date))..(Date.parse(ending_start_date))).each do |date1|</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="111">
+          
+          
+          <code class="ruby">      date &lt;&lt; date1</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="112">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="113">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="114">
+          
+          
+          <code class="ruby">    reservations = []</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="115">
+          
+          
+          <code class="ruby">    date.each do</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="116">
+          
+          
+          <code class="ruby">      checkin = date[i]</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="117">
+          
+          
+          <code class="ruby">      checkout = date[i] + days</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="118">
+          
+          
+          <code class="ruby">      reservations[i] = Reservation.new(checkin, checkout, days, rooms)</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="119">
+          
+          
+          <code class="ruby">      i +=1</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="120">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="121">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="122">
+          
+          
+          <code class="ruby">    reservations.each do |reservation|</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="123">
+          
+          
+          <code class="ruby">     begin</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="124">
+          
+          
+          <code class="ruby">        reserve_room(reservation)</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="125">
+          
+          
+          <code class="ruby">        break</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="126">
+          
+          
+          <code class="ruby">      rescue</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="127">
+          
+          
+          <code class="ruby">        next</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="128">
+          
+          
+          <code class="ruby">      end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="129">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="130">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="131">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="132">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="133">
+          
+          
+          <code class="ruby">end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="134">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="135">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="136">
+          <span class="hits">1</span>
+          
+          <code class="ruby">stregis = Hotel.new(20)</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="137">
+          <span class="hits">1</span>
+          
+          <code class="ruby">Murray = Reservation.new(&#39;2018-05-01&#39;, &#39;2018-05-03&#39;, 1)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="138">
+          
+          
+          <code class="ruby"># Smith = Reservation.new(&#39;2018-05-01&#39;, &#39;2018-05-05&#39;,1)</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="139">
+          <span class="hits">1</span>
+          
+          <code class="ruby">Rapport = Reservation.new(&#39;2018-05-01&#39;, &#39;2018-05-05&#39;,1)</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="140">
+          <span class="hits">1</span>
+          
+          <code class="ruby">Taproot = Reservation.new(&#39;2018-05-01&#39;, &#39;2018-05-05&#39;,1)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="141">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="142">
+          <span class="hits">1</span>
+          
+          <code class="ruby">stregis.reserve_room(Rapport)</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="143">
+          <span class="hits">1</span>
+          
+          <code class="ruby">stregis.reserve_room(Murray)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="144">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="145">
+          <span class="hits">1</span>
+          
+          <code class="ruby">stregis.specific_date_range_available_rooms(Taproot)</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="146">
+          <span class="hits">1</span>
+          
+          <code class="ruby">ap stregis.rooms</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="147">
+          
+          
+          <code class="ruby"># until Smith.checkin == Smith.checkout</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="148">
+          
+          
+          <code class="ruby">#   puts Smith.checkin.next_day(n)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="149">
+          
+          
+          <code class="ruby">#   n+=1</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="150">
+          
+          
           <code class="ruby"># end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="107">
+        <li class="never" data-hits="" data-linenumber="151">
           
           
           <code class="ruby"># #</code>
@@ -831,20 +1095,20 @@
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="21" data-linenumber="11">
-          <span class="hits">21</span>
+        <li class="covered" data-hits="23" data-linenumber="11">
+          <span class="hits">23</span>
           
           <code class="ruby">    @checkin = Date.parse(checkin)</code>
         </li>
       
-        <li class="covered" data-hits="21" data-linenumber="12">
-          <span class="hits">21</span>
+        <li class="covered" data-hits="23" data-linenumber="12">
+          <span class="hits">23</span>
           
           <code class="ruby">    @checkout = Date.parse(checkout)</code>
         </li>
       
-        <li class="covered" data-hits="20" data-linenumber="13">
-          <span class="hits">20</span>
+        <li class="covered" data-hits="22" data-linenumber="13">
+          <span class="hits">22</span>
           
           <code class="ruby">    @number_of_rooms = number_of_rooms</code>
         </li>
@@ -855,8 +1119,8 @@
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="20" data-linenumber="15">
-          <span class="hits">20</span>
+        <li class="covered" data-hits="22" data-linenumber="15">
+          <span class="hits">22</span>
           
           <code class="ruby">        raise ArgumentError.new &quot;Please select a valid start date.&quot; unless  (@checkin &gt; (Date.today -1))</code>
         </li>
@@ -867,8 +1131,8 @@
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="19" data-linenumber="17">
-          <span class="hits">19</span>
+        <li class="covered" data-hits="21" data-linenumber="17">
+          <span class="hits">21</span>
           
           <code class="ruby">        raise ArgumentError.new &quot;Please select a valid date range&quot; unless (@checkin &lt; @checkout)</code>
         </li>

@@ -125,19 +125,20 @@ describe 'Hotel class' do
           stregish = Hotel.new(20)
 
           proc {
-            stregish.reserves_room_for_specific_date('05-05-2017', '05-05-2017', 1, 1)
+            stregish.reserves_room_for_specific_date('05-05-2017', '05-05-2017', 1)
           }.must_raise ArgumentError
         end
 
         it "finds first available room" do
           stregish = Hotel.new(20)
-          stregish.reserves_room_for_specific_date('01-01-2019', '01-10-2019', 3, 1)
+          stregish.reserves_room_for_specific_date('01-01-2019', '01-10-2019', 1)
 
           puts stregish.rooms
 
           stregish.specific_date_reserved('01-01-2019').length.must_equal 1
 
         end
+
       end
     end
   end
@@ -145,13 +146,15 @@ describe 'Hotel class' do
   describe "Wave 3 tests" do
     it "can create a block of rooms" do
       streisha = Hotel.new(25)
+    maddow = Reservation.new('01-01-2019', '01-03-2019', 4)
 
-      streisha.block('01-01-2019', '01-03-2019', 4).must_be_kind_of Array
+      streisha.block(maddow).must_be_kind_of Array
     end
 
     it "the number of rooms is the length of the block array" do
       streisha = Hotel.new(25)
-      streisha.block('01-01-2019', '01-03-2019', 4).length.must_equal 4
+      maddow = Reservation.new('01-01-2019', '01-03-2019', 4)
+      streisha.block(maddow).length.must_equal 4
     end
 
     it "can not take in a block of more than five rooms" do
@@ -163,11 +166,17 @@ describe 'Hotel class' do
 
     it "can create a unique block of rooms" do
       streish = Hotel.new(20)
-      block1 = streish.block('01-06-2019', '01-20-2019', 4)
-      block2 = streish.block('01-06-2019', '04-02-2019', 3)
+      maddow = Reservation.new('01-01-2019', '01-03-2019', 4)
+      streisand = Reservation.new('01-01-2019', '01-03-2019', 4)
+      block1 = streish.block(maddow)
+      block2 = streish.block(streisand)
 
       block1.object_id.wont_equal block2.object_id
     end
+
+    it "can find enough rooms for a block" do
+    end
+
 
 
   end #

@@ -30,6 +30,8 @@ class Reservation
     return true if Date.parse(proposedcheckin) >= self.checkout || Date.parse(proposedcheckin) <=self.checkout
   end
 
+  
+
 
 end
 

@@ -106,10 +106,12 @@ class Hotel
   end
 
 
-  def reserves_room_for_specific_date(start_date, ending_start_date, days, rooms)
+  def reserves_room_for_specific_date(start_date, ending_start_date, rooms)
 
     start_date = Date.parse(start_date)
     ending_start_date = Date.parse(ending_start_date)
+
+    days = ending_start_date - start_date
 
 
     raise ArgumentError.new "Please select a valid start date." unless  (start_date > (Date.today - 1))
@@ -140,19 +142,22 @@ class Hotel
     end
   end
 
-  def block(checkin, checkout, number_of_rooms)
-    block = []
+  def block(reservation)
+    block_rooms = []
 
-    unless number_of_rooms < 5
+    unless reservation.number_of_rooms < 5
       raise ArgumentError.new "We can only accomodate blocks of up to 5 rooms."
     end
 
+      #need to change to accept multiple rooms
+      #returns array of availble rooms
+ block_rooms = specific_date_range_available_rooms(reservation)
 
 
-    number_of_rooms.times do
-      block << 'room'
-    end
-    return block
+  block_rooms = block_rooms.first(reservation.number_of_rooms)
+
+
+    return block_rooms
   end
 end
 

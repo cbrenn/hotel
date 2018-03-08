@@ -38,18 +38,22 @@ class Hotel
   def specific_date_reserved(date)
     i = 0
     rooms_reserved_on = []
-    date = Date.parse(date)
+
     until i == @rooms.length
       if @rooms[i] == nil
         i += 1
       else
-        rooms_reserved_on[i]= @rooms[i].select {|reservations| date.between?(reservations.checkin, (reservations.checkout-1))  }
+        @rooms[i].each do |reservation|
+          if reservation.overlap?(date, date) == true
+            rooms_reserved_on << i
+          end
+        end
+
         i += 1
+
       end
     end
-
-    rooms_reserved_on.reject! { |cell| cell.empty? }
-
+    #rooms_reserved_on.reject! { |cell| cell.empty? }
     return rooms_reserved_on
   end
 
@@ -60,11 +64,12 @@ class Hotel
     date = []
     ((reservation.checkin)..(reservation.checkout-1)).each do |date1|
       date << date1
+
     end
 
     i = 0
     available_rooms_range = []
-    puts i
+
     until i == @rooms.length
       if @rooms[i] == nil
         #accounts translating index to 1 based system
@@ -100,14 +105,14 @@ class Hotel
     return available_rooms_range
   end
 
+
   def reserves_room_for_specific_date(start_date, ending_start_date, days, rooms)
 
     start_date = Date.parse(start_date)
-    puts start_date
-  ending_start_date = Date.parse(ending_start_date)
-  puts ending_start_date
+    ending_start_date = Date.parse(ending_start_date)
 
-    raise ArgumentError.new "Please select a valid start date." unless  (start_date > (Date.today -1))
+
+    raise ArgumentError.new "Please select a valid start date." unless  (start_date > (Date.today - 1))
 
     raise ArgumentError.new "Please select a valid date range" unless (start_date < ending_start_date)
 
@@ -117,16 +122,16 @@ class Hotel
     end
 
     i = 0
-    reservations = []
+    temp_reservations = []
     date.each do
       checkin = date[i]
       checkout = date[i] + days
-      reservations[i] = Reservation.new(checkin.to_s, checkout.to_s, rooms)
+      temp_reservations[i] = Reservation.new(checkin.to_s, checkout.to_s, rooms)
       i +=1
     end
 
-    reservations.each do |reservation|
-     begin
+    temp_reservations.each do |reservation|
+      begin
         reserve_room(reservation)
         break
       rescue
@@ -140,15 +145,19 @@ end
 
 
 stregis = Hotel.new(20)
-Murray = Reservation.new('2018-05-01', '2018-05-03', 1)
+murray = Reservation.new('2018-05-01', '2018-05-03', 1)
 # Smith = Reservation.new('2018-05-01', '2018-05-05',1)
-Rapport = Reservation.new('2018-05-01', '2018-05-05',1)
-Taproot = Reservation.new('2018-05-01', '2018-05-05',1)
+rapport = Reservation.new('2018-05-01', '2018-05-05',1)
+taproot = Reservation.new('2018-05-01', '2018-05-05',1)
 
-stregis.reserve_room(Rapport)
-stregis.reserve_room(Murray)
+stregis.reserve_room(rapport)
+stregis.reserve_room(murray)
 
-stregis.reserves_room_for_specific_date('01-01-2019', '01-10-2019', 3, 1)
+puts stregis.specific_date_reserved('2018-05-01')
+
+#stregis.specific_date_range_available_rooms(taproot)
+
+#stregis.reserves_room_for_specific_date('01-01-2019', '01-10-2019', 3, 1)
 # until Smith.checkin == Smith.checkout
 #   puts Smith.checkin.next_day(n)
 #   n+=1

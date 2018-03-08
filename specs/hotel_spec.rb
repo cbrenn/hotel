@@ -154,6 +154,22 @@ describe 'Hotel class' do
       streisha.block('01-01-2019', '01-03-2019', 4).length.must_equal 4
     end
 
+    it "can not take in a block of more than five rooms" do
+      streisha = Hotel.new(6)
+      proc {
+        streisha.block('01-06-2019', '01-20-2019', 7)
+      }.must_raise ArgumentError
+    end
+
+    it "can create a unique block of rooms" do
+      streish = Hotel.new(20)
+      block1 = streish.block('01-06-2019', '01-20-2019', 4)
+      block2 = streish.block('01-06-2019', '04-02-2019', 3)
+
+      block1.object_id.wont_equal block2.object_id
+    end
+
+
   end #
   #
   #

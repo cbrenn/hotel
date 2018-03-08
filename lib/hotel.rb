@@ -84,10 +84,10 @@ class Hotel
         #look at each array element room
         @rooms[i].each do |reservations|
           #look at each date in date array
-          date.each do |date|
+          date.each do |date1|
             #is the date in the array during a
             #present reservation
-            if date.between?(reservations.checkin, reservations.checkout-1)
+            if date1.between?(reservations.checkin, reservations.checkout-1)
               i+=1
               break
             else
@@ -140,8 +140,14 @@ class Hotel
     end
   end
 
-  def block (checkin, checkout, number_of_rooms)
+  def block(checkin, checkout, number_of_rooms)
     block = []
+
+    unless number_of_rooms < 5
+      raise ArgumentError.new "We can only accomodate blocks of up to 5 rooms."
+    end
+
+
 
     number_of_rooms.times do
       block << 'room'
@@ -159,6 +165,7 @@ taproot = Reservation.new('2018-05-01', '2018-05-05',1)
 
 stregis.reserve_room(rapport)
 stregis.reserve_room(murray)
+stregis.reserve_room(taproot)
 
 #stregis.block()
 

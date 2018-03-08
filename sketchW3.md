@@ -16,7 +16,7 @@ Part 1 block in hotel class
 xtest- can create a block of rooms
 xtest- number of rooms is the length of the block
 test- can create a unique block of rooms
-test- block is no larger than 5 rooms
+xtest- block is no larger than 5 rooms
 
 Part 2 reserves rooms from block
 test- can create reservation from block

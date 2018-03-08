@@ -141,7 +141,20 @@ describe 'Hotel class' do
       end
     end
   end
-  #
+
+  describe "Wave 3 tests" do
+    it "can create a block of rooms" do
+      streisha = Hotel.new(25)
+
+      streisha.block('01-01-2019', '01-03-2019', 4).must_be_kind_of Array
+    end
+
+    it "the number of rooms is the length of the block array" do
+      streisha = Hotel.new(25)
+      streisha.block('01-01-2019', '01-03-2019', 4).length.must_equal 4
+    end
+
+  end #
   #
   #
   #

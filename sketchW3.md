@@ -13,8 +13,8 @@ reservation matches date range of the block
 
 
 Part 1 block in hotel class
-test- can create a block of rooms
-test- number of rooms is the length of the block
+xtest- can create a block of rooms
+xtest- number of rooms is the length of the block
 test- can create a unique block of rooms
 test- block is no larger than 5 rooms
 

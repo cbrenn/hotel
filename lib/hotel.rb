@@ -138,8 +138,15 @@ class Hotel
         next
       end
     end
+  end
 
+  def block (checkin, checkout, number_of_rooms)
+    block = []
 
+    number_of_rooms.times do
+      block << 'room'
+    end
+    return block
   end
 end
 
@@ -153,7 +160,9 @@ taproot = Reservation.new('2018-05-01', '2018-05-05',1)
 stregis.reserve_room(rapport)
 stregis.reserve_room(murray)
 
-puts stregis.specific_date_reserved('2018-05-01')
+#stregis.block()
+
+#puts stregis.specific_date_reserved('2018-05-01')
 
 #stregis.specific_date_range_available_rooms(taproot)
 

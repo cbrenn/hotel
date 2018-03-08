@@ -30,6 +30,7 @@ class Reservation
     return true if Date.parse(proposedcheckin) >= self.checkout || Date.parse(proposedcheckin) <=self.checkout
   end
 
+
 end
 
 hosier = Reservation.new('2018-05-01', '2018-05-05', 1)

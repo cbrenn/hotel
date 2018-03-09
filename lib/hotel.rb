@@ -1,11 +1,11 @@
 require 'date'
 require_relative 'reservation'
 require 'awesome_print'
+require 'pry'
 
 module Admin
   class Hotel
     attr_reader :rooms
-    attr_accessor :block_rooms
 
     def initialize(rooms)
       @rooms = Array.new(rooms)
@@ -14,6 +14,8 @@ module Admin
     def reserve_room(reservation)
 
       i = 0
+      reservation_array = []
+
 
       until i == @rooms.length
 
@@ -21,22 +23,31 @@ module Admin
           @rooms[i] = []
           #add reservation in an array
           @rooms[i][0] = reservation
-          return
+          reservation_array[i] = @rooms[i]
+          i+=1
+          #binding.pry
+          next
+
         else
           #go through arrays and see if there is a room booked at that time and return it to a new array
           booked_during = @rooms[i].select {|reservations| reservation.checkin.between?(reservations.checkin, reservations.checkout-1) }
 
           if booked_during.length == 0
             @rooms[i] << reservation
-            return
+            reservation_array[i] = @rooms[i]
+            i += 1
           else
             i += 1
             # => true
           end
-        end
 
+        end
+        return reservation_array
       end
-      raise ArgumentError.new("There are no more rooms available on #{reservation.checkin}")
+
+      if reservation.number_of_rooms > reservation_array.length    
+        raise ArgumentError.new("There are no more rooms available on #{reservation.checkin}")
+      end
 
     end
 

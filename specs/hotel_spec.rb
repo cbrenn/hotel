@@ -139,4 +139,18 @@ describe 'Hotel class' do
     end
   end
 
+  describe "Wave 3 tests" do
+    it "Can take reservation for more than one room on empty hotel" do
+      stregis = Admin::Hotel.new(20)
+      murray = Admin::Reservation.new('2018-05-01', '2018-05-02', 2)
+
+      stregis.reserve_room(murray)
+     puts stregis.rooms[0]
+      stregis.rooms[0].length.must_equal 1
+      stregis.rooms[1].length.must_equal 1
+
+
+    end
+  end
+
 end

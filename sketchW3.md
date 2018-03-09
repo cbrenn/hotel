@@ -1,3 +1,8 @@
+reading different kinds of reservations
+and giving different answers
+
+reserving within a block vs. reserving public 
+
 v
 create block of rooms
 

@@ -9,6 +9,16 @@ does block have rooms available_rooms_range
 reserve room from within a block of rooms
 max 5 rooms
 
+
+
+
+
+Revamp
+Part1
+Creating a block that inherits from hotel class
+
+Creating a reservation that inherits from the date class
+
 reservation matches date range of the block
 
 
@@ -21,12 +31,14 @@ xtest- block is no larger than 5 rooms
 test - can find enough rooms for block
 
 test - returns error if not enough rooms for block
+
 test - can access set aside rooms for block
 
 test - room can not be reserved if has block
 
 is a reservation or is a block
 
+incorporate if number_of_rooms > 1
 
 Part 2 reserves rooms from block
 test- can create reservation from block
@@ -35,6 +47,9 @@ test - can say how many rooms in block are reserved
 
 subclass of reservation - then can run cost and reserve on it
 
+
+Wave1 tests redo  
+test- can reserve more than one room
 
 room block
 reservation within block

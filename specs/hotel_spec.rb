@@ -3,11 +3,11 @@ require_relative 'spec_helper'
 describe 'Hotel class' do
   describe 'initialize' do
     before do
-      @waldorf = Hotel.new(20)
+      @waldorf = Admin::Hotel.new(20)
     end
 
     it "hotel has rooms added to it on initialization" do
-      @astoria = Hotel.new(20)
+      @astoria = Admin::Hotel.new(20)
 
       @astoria.rooms.length.must_equal 20
     end
@@ -23,31 +23,27 @@ describe 'Hotel class' do
 
   describe 'reserve_room method' do
     before do
-      @waldorf = Hotel.new(20)
+      @waldorf = Admin::Hotel.new(20)
+      @burray = Admin::Reservation.new('2018-05-01', '2018-05-05',1)
+      @blurray = Admin::Reservation.new('2018-05-01', '2018-05-05',1)
     end
 
     it "takes a reservation and updates room" do
-      dorf = Hotel.new(20)
-      burray = Reservation.new('2018-05-01', '2018-05-05',1)
-      dorf.reserve_room(burray)
-
-      dorf.rooms[0].length.must_equal 1
+      @waldorf.reserve_room(@burray)
+      @waldorf.rooms[0].length.must_equal 1
     end
 
     it "does not double book a room" do
-      ldorf = Hotel.new(20)
-      blurray = Reservation.new('2018-05-01', '2018-05-05',1)
-      bluray = Reservation.new('2018-05-01', '2018-05-05',1)
-      ldorf.reserve_room(bluray)
-      ldorf.reserve_room(blurray)
+      @waldorf.reserve_room(@burray)
+      @waldorf.reserve_room(@blurray)
 
-      ldorf.rooms[0].length.must_equal 1
-      ldorf.rooms[1].length.must_equal 1
+      @waldorf.rooms[0].length.must_equal 1
+      @waldorf.rooms[1].length.must_equal 1
     end
 
     it "no more than the rooms that exist can be reserved on a specific date" do
-      aldorf = Hotel.new(2)
-      urray = Reservation.new('2018-05-01', '2018-05-05',1)
+      aldorf = Admin::Hotel.new(2)
+      urray = Admin::Reservation.new('2018-05-01', '2018-05-05',1)
 
       proc {
 
@@ -59,9 +55,9 @@ describe 'Hotel class' do
     end
 
     it "can make a reservation on the same day as a checkout" do
-      hilmorf = Hotel.new(20)
-      hosier = Reservation.new('2018-05-01', '2018-05-05',1)
-      bruiser = Reservation.new('2018-05-05', '2018-05-07',1r)
+      hilmorf = Admin::Hotel.new(20)
+      hosier = Admin::Reservation.new('2018-05-01', '2018-05-05',1)
+      bruiser = Admin::Reservation.new('2018-05-05', '2018-05-07',1)
 
       hilmorf.reserve_room(hosier)
       hilmorf.reserve_room(bruiser)
@@ -71,10 +67,10 @@ describe 'Hotel class' do
     end
 
     it "returns a list of reservations for a specific date" do
-      stregis = Hotel.new(20)
-      murray = Reservation.new('2018-05-01', '2018-05-02', 1)
-      smith = Reservation.new('2018-05-01', '2018-05-05',1)
-      rapport = Reservation.new('2018-05-01', '2018-05-05',1)
+      stregis = Admin::Hotel.new(20)
+      murray = Admin::Reservation.new('2018-05-01', '2018-05-02', 1)
+      smith = Admin::Reservation.new('2018-05-01', '2018-05-05',1)
+      rapport = Admin::Reservation.new('2018-05-01', '2018-05-05',1)
 
       stregis.reserve_room(murray)
       stregis.reserve_room(smith)
@@ -87,27 +83,27 @@ describe 'Hotel class' do
     describe "returns array of available rooms for date range" do
 
       it "takes in a valid date range" do
-        stregish = Hotel.new(20)
+        stregish = Admin::Hotel.new(20)
 
         proc {
-          porta = Reservation.new('2017-05-01', '2017-05-05', 1)
+          porta = Admin::Reservation.new('2017-05-01', '2017-05-05', 1)
           stregish.specific_date_range_available_rooms(porta)
         }.must_raise ArgumentError
       end
 
       it "returns all rooms if there are no resevations" do
-        stregish = Hotel.new(20)
-        port = Reservation.new('2018-05-01', '2018-05-05', 1)
+        stregish = Admin::Hotel.new(20)
+        port = Admin::Reservation.new('2018-05-01', '2018-05-05', 1)
 
         (stregish.specific_date_range_available_rooms(port)).length.must_equal 20
       end
 
       it "returns an array of the correct length for rooms depending on the reservations" do
-        stregish = Hotel.new(20)
+        stregish = Admin::Hotel.new(20)
 
-        iport = Reservation.new('2018-05-01', '2018-05-05', 1)
-        uport = Reservation.new('2018-05-01', '2018-05-05', 1)
-        weport = Reservation.new('2018-05-01', '2018-05-05', 1)
+        iport = Admin::Reservation.new('2018-05-01', '2018-05-05', 1)
+        uport = Admin::Reservation.new('2018-05-01', '2018-05-05', 1)
+        weport = Admin::Reservation.new('2018-05-01', '2018-05-05', 1)
 
 
         after_reservations = stregish.specific_date_range_available_rooms(iport).length - 3
@@ -122,7 +118,7 @@ describe 'Hotel class' do
       describe 'reserves room for specific date' do
 
         it 'takes in valid dates for reservation' do
-          stregish = Hotel.new(20)
+          stregish = Admin::Hotel.new(20)
 
           proc {
             stregish.reserves_room_for_specific_date('05-05-2017', '05-05-2017', 1)
@@ -130,7 +126,7 @@ describe 'Hotel class' do
         end
 
         it "finds first available room" do
-          stregish = Hotel.new(20)
+          stregish = Admin::Hotel.new(20)
           stregish.reserves_room_for_specific_date('01-01-2019', '01-10-2019', 1)
 
           puts stregish.rooms
@@ -142,48 +138,5 @@ describe 'Hotel class' do
       end
     end
   end
-
-  describe "Wave 3 tests" do
-    it "can create a block of rooms" do
-      streisha = Hotel.new(25)
-    maddow = Reservation.new('01-01-2019', '01-03-2019', 4)
-
-      streisha.block(maddow).must_be_kind_of Array
-    end
-
-    it "the number of rooms is the length of the block array" do
-      streisha = Hotel.new(25)
-      maddow = Reservation.new('01-01-2019', '01-03-2019', 4)
-      streisha.block(maddow).length.must_equal 4
-    end
-
-    it "can not take in a block of more than five rooms" do
-      streisha = Hotel.new(6)
-      proc {
-        streisha.block('01-06-2019', '01-20-2019', 7)
-      }.must_raise ArgumentError
-    end
-
-    it "can create a unique block of rooms" do
-      streish = Hotel.new(20)
-      maddow = Reservation.new('01-01-2019', '01-03-2019', 4)
-      streisand = Reservation.new('01-01-2019', '01-03-2019', 4)
-      block1 = streish.block(maddow)
-      block2 = streish.block(streisand)
-
-      block1.object_id.wont_equal block2.object_id
-    end
-
-    it "can find enough rooms for a block" do
-    end
-
-
-
-  end #
-  #
-  #
-  #
-  #
-  # end
 
 end

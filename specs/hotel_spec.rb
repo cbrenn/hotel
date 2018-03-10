@@ -143,9 +143,46 @@ describe 'Hotel class' do
       murray = Admin::Reservation.new('2018-05-01', '2018-05-02', 2)
 
       stregis.reserve_room(murray)
-     puts stregis.rooms[0]
+
       stregis.rooms[0].length.must_equal 1
       stregis.rooms[1].length.must_equal 1
+
+
+    end
+  end
+
+  describe "Block tests" do
+    it "Can return a list of blocked rooms by reservation" do
+      stregis = Admin::Hotel.new(20)
+      murray = Admin::Block.new('2018-05-01', '2018-05-02', 3, false, 'murray')
+
+      stregis.reserve_room(murray)
+      stregis.find_block_rooms_by_reservation(murray).length.must_equal 3
+  end
+    it "Can return a list of blocked rooms by room number" do
+      stregis = Admin::Hotel.new(20)
+      murray = Admin::Block.new('2018-05-01', '2018-05-02', 3, false, 'murray')
+
+      stregis.reserve_room(murray)
+
+      stregis.find_block_rooms_by_room_number(murray).length.must_equal 3
+    end
+
+    it "Can change the reserve value of the block to true" do
+
+      stregis = Admin::Hotel.new(20)
+      murray = Admin::Block.new('2018-05-01', '2018-05-02', 3, false, 'murray')
+
+      stregis.reserve_room(murray)
+
+      stregis.reserve_block_room('murray', 3)
+
+        reservation = stregis.rooms[0][0]
+
+      reservation.reserve.must_equal true
+
+
+
 
 
     end

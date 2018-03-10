@@ -55,9 +55,33 @@ module Admin
       end
 
     end
-    def reservation_made?
-    end
 
+    def reserve_block_room(blockid_to_check, number_of_rooms_to_reserve)
+      i = 0
+
+      reservation_made = 0
+
+
+      until i == @rooms.length || reservation_made == number_of_rooms_to_reserve
+        if @rooms[i] == nil
+          i += 1
+        else
+          @rooms[i].each do |reservation|
+
+            if reservation.blockname == blockid_to_check && reservation.reserve == false
+              puts "here"
+              reservation.reserve = true
+
+              reservation_made += 1
+              i += 1
+            else
+              i += 1
+            end
+          end
+        end
+      end
+
+    end
 
     #finds what reservations are on a specific date
     def specific_date_reserved(date)
@@ -170,6 +194,42 @@ module Admin
       end
     end
 
+    def find_block_rooms_by_reservation(reservation)
+      i = 0
+      block_array = []
+      until i == rooms.length
+        if @rooms[i] == nil
+          @rooms[i] = []
+          i += 1
+        else
+          block_array << @rooms[i].select {|reservations| reservations.blockname == reservation.blockname
+          }
+
+          i += 1
+        end
+      end
+      return block_array
+    end
+
+    def find_block_rooms_by_room_number(reservation)
+      i = 0
+      block_array_rooms = []
+      until i == rooms.length
+        if @rooms[i] == nil
+          @rooms[i] = []
+          i += 1
+        else
+          @rooms[i].each do|reservations|
+            if reservations.blockname == reservation.blockname
+              block_array_rooms << i
+            end
+          end
+          i += 1
+        end
+      end
+
+      return block_array_rooms
+    end
 
   end
 end

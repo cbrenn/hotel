@@ -3,19 +3,19 @@ require_relative 'spec_helper'
 describe "Wave 3 tests" do
   it "can take in reader methods from reservation" do
 
-    maddow = Admin::Block.new('01-01-2019', '01-03-2019', 4, 0, 'Maddow')
+    maddow = Admin::Block.new('01-01-2019', '01-03-2019', 4, false, 'Maddow')
 
     maddow.number_of_rooms.must_equal 4
   end
 
   it "a can amend the reservation cost method" do
-    maddow = Admin::Block.new('2019-01-01', '2019-01-03',1, 0, 'Maddow')
+    maddow = Admin::Block.new('2019-01-01', '2019-01-03',1, false, 'Maddow')
     maddow.cost.must_equal 340
   end
 
   it "the rooms can be reserved as blocks" do
     streisha = Admin::Hotel.new(25)
-    maddow = Admin::Block.new('01-01-2019', '01-03-2019', 4, 0, "maddow")
+    maddow = Admin::Block.new('01-01-2019', '01-03-2019', 4, false, "maddow")
     streisha.reserve_room(maddow)
 
     streisha.rooms[0].length.must_equal 1

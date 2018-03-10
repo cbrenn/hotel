@@ -2,7 +2,8 @@ require_relative 'hotel.rb'
 
 module Admin
   class Block < Reservation
-  attr_reader :reserved, :blockid
+  attr_reader :reserved, :blockname
+  attr_accessor :reserve
     #
     def initialize(checkin, checkout, number_of_rooms, reserve, blockname)
       super(checkin,checkout,number_of_rooms)
@@ -10,11 +11,17 @@ module Admin
       @blockname = blockname
     end
 
+
     # if @number_of_rooms > 5
     #   raise ArgumentError.new "We can only accomodate blocks of up to 5 rooms."
     # end
 
+    raise ArgumentError.new "We can only accomodate blocks of up to 5 rooms." unless (@number_of_rooms > 5)
 
+
+    def find_block_rooms(blockname)
+
+    end
 
     def cost
       sub_total = super
@@ -27,11 +34,11 @@ module Admin
   end
 end
 
-maddow = Admin::Block.new('01-01-2019', '01-03-2019', 4, 0, 'Maddow')
+maddow = Admin::Block.new('01-01-2019', '01-03-2019', 4, false, 'maddow')
 
 puts maddow.checkin
 #puts block1 = Admin::Block.new(maddow)
-
+puts maddow.number_of_rooms
 
 
 #block_rooms = []

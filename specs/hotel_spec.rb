@@ -129,8 +129,6 @@ describe 'Hotel class' do
           stregish = Admin::Hotel.new(20)
           stregish.reserves_room_for_specific_date('01-01-2019', '01-10-2019', 1)
 
-          puts stregish.rooms
-
           stregish.specific_date_reserved('01-01-2019').length.must_equal 1
 
         end

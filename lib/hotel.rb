@@ -15,18 +15,21 @@ module Admin
 
       i = 0
       reservation_array = []
+      reservation_made = 0 
 
 
-      until i == @rooms.length
+      until i == @rooms.length || reservation_made == reservation.number_of_rooms
 
         if @rooms[i] == nil
+
           @rooms[i] = []
           #add reservation in an array
           @rooms[i][0] = reservation
           reservation_array[i] = @rooms[i]
+          reservation_made += 1
           i+=1
           #binding.pry
-          next
+
 
         else
           #go through arrays and see if there is a room booked at that time and return it to a new array
@@ -35,6 +38,7 @@ module Admin
           if booked_during.length == 0
             @rooms[i] << reservation
             reservation_array[i] = @rooms[i]
+            reservation_made += 1
             i += 1
           else
             i += 1
@@ -42,14 +46,18 @@ module Admin
           end
 
         end
-        return reservation_array
+
       end
 
-      if reservation.number_of_rooms > reservation_array.length    
+
+      if reservation.number_of_rooms > reservation_array.length
         raise ArgumentError.new("There are no more rooms available on #{reservation.checkin}")
       end
 
     end
+    def reservation_made?
+    end
+
 
     #finds what reservations are on a specific date
     def specific_date_reserved(date)
@@ -163,13 +171,13 @@ module Admin
   end
 end
 
-# stregis = Hotel.new(20)
+stregis = Admin::Hotel.new(20)
 # murray = Reservation.new('2018-05-01', '2018-05-03', 3)
 # # Smith = Reservation.new('2018-05-01', '2018-05-05',1)
-# rapport = Reservation.new('2018-05-01', '2018-05-05',3)
+rapport = Admin::Reservation.new('2018-05-01', '2018-05-05',3)
 # taproot = Reservation.new('2018-05-01', '2018-05-05',3)
 #
-# puts stregis.reserve_room(rapport)
+puts stregis.reserve_room(rapport)
 # #puts stregis.reserve_room(murray)
 # #puts stregis.reserve_room(taproot)
 #

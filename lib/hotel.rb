@@ -15,7 +15,7 @@ module Admin
 
       i = 0
       reservation_array = []
-      reservation_made = 0 
+      reservation_made = 0
 
 
       until i == @rooms.length || reservation_made == reservation.number_of_rooms
@@ -156,13 +156,16 @@ module Admin
         temp_reservations[i] = Reservation.new(checkin.to_s, checkout.to_s, rooms)
         i +=1
       end
-
-      temp_reservations.each do |reservation|
-        begin
-          reserve_room(reservation)
-          break
-        rescue
-          next
+      reserved = 0
+      until reserved == rooms
+        temp_reservations.each do |reservation|
+          begin
+            reserve_room(reservation)
+            reserved +=1
+            break
+          rescue
+            next
+          end
         end
       end
     end

@@ -31,6 +31,7 @@ describe "Wave 3 tests" do
   #
   # it "can find enough rooms for a block" do
   # end
+  #returns rooms reserved from rooms reserved method
 
 
 

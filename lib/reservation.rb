@@ -23,7 +23,7 @@ module Admin
 
     def cost
       sub_cost = ROOM_COST * number_of_rooms
-      length_of_stay = (checkout - 1) - checkin
+      length_of_stay = checkout - checkin
       total_cost = length_of_stay.to_f * sub_cost
       return total_cost
     end

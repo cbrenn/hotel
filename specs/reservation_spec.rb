@@ -19,7 +19,7 @@ end
 
  it "returns a total cost for rooms reserved" do
    Hosier = Admin::Reservation.new('2018-05-01', '2018-05-05',1)
-   Hosier.cost.must_equal 600
+   Hosier.cost.must_equal 800
  end
 
 end

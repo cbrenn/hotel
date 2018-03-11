@@ -9,19 +9,14 @@ module Admin
       super(checkin,checkout,number_of_rooms)
       @reserve = reserve
       @blockname = blockname
+
+      if @number_of_rooms > 5
+        raise ArgumentError.new "We can only accomodate blocks of up to 5 rooms."
+      end
     end
 
 
-    # if @number_of_rooms > 5
-    #   raise ArgumentError.new "We can only accomodate blocks of up to 5 rooms."
-    # end
 
-    raise ArgumentError.new "We can only accomodate blocks of up to 5 rooms." unless (@number_of_rooms > 5)
-
-
-    def find_block_rooms(blockname)
-
-    end
 
     def cost
       sub_total = super
@@ -29,8 +24,6 @@ module Admin
       total = sub_total * 0.85
       return total
     end
-
-
   end
 end
 

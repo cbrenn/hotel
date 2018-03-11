@@ -9,6 +9,7 @@ module Admin
 
     def initialize(rooms)
       @rooms = Array.new(rooms)
+
     end
 
     def reserve_room(reservation)
@@ -145,26 +146,31 @@ module Admin
       end
     end
 
+    def temp_reservation(checkin, checkout, rooms)
+      Reservation.new(checkin, checkout ,rooms)
+    end
+
     def temp_reservations_array(start_date, ending_start_date, days, rooms)
       date = []
       ((start_date)..(ending_start_date)).each do |date1|
         date << date1
       end
 
+
       i = 0
       temp_reservations = []
       date.each do
-        checkin = date[i]
-        checkout = date[i] + days
-        temp_reservations[i] = Reservation.new(checkin.to_s, checkout.to_s, rooms)
+        checkin = date[i].to_s
+        checkout = (date[i] + days).to_s
+        temp_reservations[i] = temp_reservation(checkin, checkout, rooms)
         i +=1
       end
       return temp_reservations
     end
 
-    # def temp_reservations
-    #   @reservation ||= Reservation.new(checkin.to_s, checkout.to_s, rooms)
-    # end
+
+
+
 
     def find_block_rooms_by_reservation(reservation)
       i = 0

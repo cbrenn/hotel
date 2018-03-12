@@ -64,7 +64,7 @@ module Admin
 
     end
 
-    #finds what reservations are on a specific date
+
     def specific_date_reserved(date)
       i = 0
       rooms_reserved_on = []

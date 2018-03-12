@@ -30,18 +30,8 @@ module Admin
 
     def overlap?(proposedcheckin, proposedcheckout)
 
-      #return false
       return true if Date.parse(proposedcheckin) >= self.checkout || Date.parse(proposedcheckin) <=self.checkout
     end
 
-
-
-
   end
 end
-
-# hosier = Reservation.new('2018-05-01', '2018-05-05', 1)
-# #Sputs hosier.cost
-# # puts Hosier.number_of_rooms
-#
-# puts hosier.overlap?('2018-05-01','2018-05-03')
